@@ -46,6 +46,7 @@ public:
         TYPE_SAVE = 11,
         TYPE_EXIT = 12,
         TYPE_IMAGEUPLOADER = 13,
+        TYPE_IMGSEARCH = 99,
         TYPE_OPEN_APP = 14,
         TYPE_BLUR = 15,
         TYPE_REDO = 16,

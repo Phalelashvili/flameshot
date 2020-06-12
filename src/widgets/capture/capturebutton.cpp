@@ -166,6 +166,7 @@ static std::map<CaptureButton::ButtonType, int> buttonTypeOrder {
     { CaptureButton::TYPE_IMAGEUPLOADER,     16 },
     { CaptureButton::TYPE_OPEN_APP,          17 },
     { CaptureButton::TYPE_PIN,               18 },
+    { CaptureButton::TYPE_IMGSEARCH,         99 },
 };
 
 int CaptureButton::getPriorityByButton(CaptureButton::ButtonType b) {
@@ -191,6 +192,7 @@ QVector<CaptureButton::ButtonType> CaptureButton::iterableButtonTypes = {
     CaptureButton::TYPE_SAVE,
     CaptureButton::TYPE_EXIT,
     CaptureButton::TYPE_IMAGEUPLOADER,
+    CaptureButton::TYPE_IMGSEARCH,
     CaptureButton::TYPE_OPEN_APP,
     CaptureButton::TYPE_PIN,
 };
