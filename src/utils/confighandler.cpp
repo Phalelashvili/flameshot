@@ -385,3 +385,11 @@ QVector<int> ConfigHandler::fromButtonToInt(
         buttons << static_cast<int>(i);
     return buttons;
 }
+
+bool ConfigHandler::closePinWithEscapeEnabled() {
+    return m_settings.value(QStringLiteral("closePinWithEscapeEnabled")).toBool();
+}
+
+void ConfigHandler::setClosePinWithEscapeEnabled(const bool value) {
+    m_settings.setValue(QStringLiteral("closePinWithEscapeEnabled"), value);
+}

@@ -52,3 +52,7 @@ flameshot*.tar.bz2
 
 
 # End of https://www.gitignore.io/api/snapcraft
+
+
+.idea
+.vscode

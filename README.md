@@ -1,4 +1,9 @@
-<h2>Added feature: reverse image search on google</h2>
+## Added features
+
+- Reverse image search on google
+- Ability to save already pinned images (CTRL + S when pin is focused)
+- Setting to not map ESC key to closing pinned image
+
 <div align="center">
   <p>
     <h1>

@@ -74,6 +74,8 @@ public:
     bool copyAndCloseAfterUploadEnabled();
     void setCopyAndCloseAfterUploadEnabled(const bool);
 
+    bool closePinWithEscapeEnabled();
+    void setClosePinWithEscapeEnabled(const bool);
 
     void setDefaults();
     void setAllTheButtons();

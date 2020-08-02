@@ -17,6 +17,7 @@
 
 #include "pinwidget.h"
 #include "src/utils/confighandler.h"
+#include "src/utils/screenshotsaver.h"
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QWheelEvent>
@@ -50,7 +51,9 @@ PinWidget::PinWidget(const QPixmap &pixmap, QWidget *parent) :
     m_layout->addWidget(m_label);
 
     new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q), this, SLOT(close()));
-    new QShortcut(Qt::Key_Escape, this, SLOT(close()));
+
+    if (ConfigHandler().closePinWithEscapeEnabled())
+        new QShortcut(Qt::Key_Escape, this, SLOT(close()));
 }
 
 int PinWidget::margin() const {
@@ -99,4 +102,10 @@ void PinWidget::setScaledPixmap(const QSize &size) {
                                            Qt::SmoothTransformation);
     scaledPixmap.setDevicePixelRatio(scale);
     m_label->setPixmap(scaledPixmap);
+}
+
+void PinWidget::keyPressEvent(QKeyEvent *e) {
+    if (e->key() == Qt::Key_S) {
+        ScreenshotSaver().saveToFilesystemGUI(m_pixmap);
+    }
 }

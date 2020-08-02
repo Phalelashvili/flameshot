@@ -35,6 +35,7 @@ protected:
     void mouseDoubleClickEvent(QMouseEvent *);
     void mousePressEvent(QMouseEvent *);
     void mouseMoveEvent(QMouseEvent *);
+    void keyPressEvent(QKeyEvent *e);
     void enterEvent(QEvent *);
     void leaveEvent(QEvent *);
 

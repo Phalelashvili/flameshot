@@ -38,6 +38,7 @@ GeneneralConf::GeneneralConf(QWidget *parent) : QWidget(parent) {
     initAutostart();
     initCloseAfterCapture();
     initCopyAndCloseAfterUpload();
+    initClosePinWithEscape();
 
     // this has to be at the end
     initConfingButtons();
@@ -51,6 +52,7 @@ void GeneneralConf::updateComponents() {
     m_autostart->setChecked(config.startupLaunchValue());
     m_closeAfterCapture->setChecked(config.closeAfterScreenshotValue());
     m_copyAndCloseAfterUpload->setChecked(config.copyAndCloseAfterUploadEnabled());
+    m_closePinWithEscape->setChecked(config.closePinWithEscapeEnabled());
 
 #if defined(Q_OS_LINUX) || defined(Q_OS_UNIX)
     m_showTray->setChecked(!config.disabledTrayIconValue());
@@ -235,5 +237,18 @@ void GeneneralConf::initCopyAndCloseAfterUpload()
 
     connect(m_copyAndCloseAfterUpload, &QCheckBox::clicked, [](bool checked) {
         ConfigHandler().setCopyAndCloseAfterUploadEnabled(checked);
+    });
+}
+
+void GeneneralConf::initClosePinWithEscape()
+{
+    m_closePinWithEscape = new QCheckBox(tr("Close pinned image with ESC key"), this);
+    ConfigHandler config;
+    m_closePinWithEscape->setChecked(config.closePinWithEscapeEnabled());
+    m_closePinWithEscape->setToolTip(tr("Close pinned image with ESC key"));
+    m_layout->addWidget(m_closePinWithEscape);
+
+    connect(m_closePinWithEscape, &QCheckBox::clicked, [](bool checked) {
+        ConfigHandler().setClosePinWithEscapeEnabled(checked);
     });
 }
