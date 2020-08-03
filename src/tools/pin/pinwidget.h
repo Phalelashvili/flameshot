@@ -38,6 +38,7 @@ protected:
     void keyPressEvent(QKeyEvent *e);
     void enterEvent(QEvent *);
     void leaveEvent(QEvent *);
+    void copyScreenshot();
 
 private:
     void setScaledPixmap(const QSize &size);

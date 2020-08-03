@@ -1,9 +1,9 @@
 ## Added features
 
 - Reverse image search on google
-- Ability to save already pinned images (CTRL + S when pin is focused)
+- Ability to copy(ctrl + c) and save(ctrl + s) already pinned images (pin must be focused)
 - Setting to not map ESC key to closing pinned image
-
+##
 <div align="center">
   <p>
     <h1>

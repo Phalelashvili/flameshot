@@ -96,6 +96,15 @@ void PinWidget::mouseMoveEvent(QMouseEvent *e) {
     move(m_dragStart.x() + delta.x() - offsetW, m_dragStart.y() + delta.y() - offsetH);
 }
 
+void PinWidget::keyPressEvent(QKeyEvent *e) {
+    if (e->key() == Qt::Key_S) {
+        ScreenshotSaver().saveToFilesystemGUI(m_pixmap);
+    }
+    else if (e->key() == Qt::Key_C){
+        copyScreenshot();
+    }
+}
+
 void PinWidget::setScaledPixmap(const QSize &size) {
     const qreal scale = qApp->devicePixelRatio();
     QPixmap scaledPixmap = m_pixmap.scaled(size * scale, Qt::KeepAspectRatio,
@@ -104,8 +113,6 @@ void PinWidget::setScaledPixmap(const QSize &size) {
     m_label->setPixmap(scaledPixmap);
 }
 
-void PinWidget::keyPressEvent(QKeyEvent *e) {
-    if (e->key() == Qt::Key_S) {
-        ScreenshotSaver().saveToFilesystemGUI(m_pixmap);
-    }
+void PinWidget::copyScreenshot() {
+    ScreenshotSaver().saveToClipboard(m_pixmap);
 }
